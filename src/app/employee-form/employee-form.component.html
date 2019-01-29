@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Employee Details</h1>
+  <form act>
+    
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" name="name" [(ngModel)]="employee.name" placeholder="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="department">Department</label>
+      <input id="department" name="department" [(ngModel)]="employee.department" placeholder="department">
+    </div>
+    
+    <button type="submit" class="btn btn-success" (click)="save()">Save</button>
+    <button type="reset" class="btn btn-success" (click)="cancel()">Cancel</button>
+    
+  </form>
+</div>

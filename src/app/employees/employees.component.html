@@ -1,0 +1,30 @@
+<h2>Employeees</h2>
+
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.department}}</td>
+      <td>
+        <button class="delete-button" (click)="deleteEmployee(employee, $event)">Delete</button>
+      </td>
+      <td>
+        <button class="edit-button" (click)="editEmployee(employee, $event)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button class=add-button *ngIf="!showEdit" (click)="showEdit=true">Add Employee</button>
+
+<div *ngIf="showEdit">
+  <employee-form [employee]="selectedEmployee" (onSaved)="updateAfterSave()" (onCancelled)="cancelAddEdit()"></employee-form>
+</div>
